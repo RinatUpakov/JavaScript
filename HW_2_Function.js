@@ -1,4 +1,4 @@
-let str = 'aaaaA1@';
+let str;
 
 function isString (str) {
     let valid = false;
@@ -8,13 +8,13 @@ function isString (str) {
 
 function isNotEmpty (str) {
     let valid = false;
-    str != undefined ? valid = true :  console.log ("the string mustn't be empty");
+    str ? valid = true :  console.log ("the string mustn't be empty");
     return valid;
 }
 
 function validLength (str) {
     let valid = false;
-    if (str != undefined) {
+    if (str) {
     str.toString().length >= 5 && str.toString().length <= 64 ? valid = true : console.log ('The string must contain at least 5 and no more than 64 characters');
     } else {console.log ('The string must contain at least 5 and no more than 64 characters');}
     return valid;
@@ -22,7 +22,7 @@ function validLength (str) {
 
 function isContainLetters (str) {
     let valid = false;
-    if (str != undefined) {
+    if (str) {
     /[a-zA-Z]/.test(str) ? valid = true : console.log ('the string must contain letters');
     } else {
         console.log ('the string must contain letters');
