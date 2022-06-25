@@ -98,7 +98,7 @@ ___
 
 ____
 
-<h2 align= "center">Задание 2</h2>
+<h2 align= "center">Задание 2 вариант 1</h2>
 
 ### Файл с выполненным заданием: [JS_Validator_func.js](https://github.com/RinatUpakov/JavaScript/blob/e56c71f32bf8e453b0ef4be8960e34b9d1969aa1/HW_2_Function.js)
 
@@ -114,6 +114,8 @@ ____
  7. Должна быть хотя бы одна цифра
  8. Должна быть хотя бы одна @
  9. Строка не должна быть пустой
+
+___
 
 ```javascript
 let str;
@@ -181,3 +183,112 @@ function isValid (str) {
 
 isValid (str);
 console.log(str);
+```
+____
+
+<h2 align= "center">Задание 2 вариант 2</h2>
+
+### Файл с выполненным заданием: [JS_Validator_func_2.js](https://github.com/RinatUpakov/JavaScript/blob/0700ef87fab562769fc5455193896d98ed07a49a/HW_2_If.js)
+
+____
+
+/*Напишите валидационный скрипт используя функции 
+ 1. Скрипт должен на вход принимать строку.
+ 2. После проверки строки выводить в консоль сообщение где будет конкретно написано, что не так в ведённой строке.
+ 3. Минимум 5 символов в строке
+ 4. Максимум 64 символа в строке
+ 5. В строке должны быть буквы
+ 6. Должна быть хотя бы одна буква в верхнем регистре
+ 7. Должна быть хотя бы одна цифра
+ 8. Должна быть хотя бы одна @
+ 9. Строка не должна быть пустой */
+
+___
+
+```javascript
+function validator(str) {
+    if (typeof(str)== 'string') {
+        if ((str.length >= 5) && (str.length <= 64)) {
+            if (/[a-zA-Z]/.test(str)) {
+                if (/[A-Z]/.test(str)) {
+                    if (/[0-9]/.test(str)) {
+                        if (/@/.test(str)) {
+                            console.log ('the string meets all the requirements')
+                        } else console.log ('the string must contain at least one "@" symbol')
+                    } else console.log('the string must contain at least one number')
+                } else console.log('the string must contain at least one uppercase letter')
+            } else console.log('the string must contain letters')
+        } else console.log('The string must contain at least 5 and no more than 64 characters')
+    } else console.log('please enter some string');
+}
+
+validator('qwertQ1@');
+```
+
+____
+
+<h2 align= "center">Дополнительное задание</h2>
+
+### Файлы с выполненным заданием: 
+### скрипт: [script.js](https://github.com/RinatUpakov/JavaScript/blob/0700ef87fab562769fc5455193896d98ed07a49a/script.js)
+### страница с подключенным скриптом: [script_page.html](https://github.com/RinatUpakov/JavaScript/blob/0700ef87fab562769fc5455193896d98ed07a49a/script_page.html)
+____
+
+Задания с разным количеством звездочек
+
+1*:
+Преобразовать написанный код в задании 1.15 в функцию, принимающую на вход возраст.
+Пример: const checkAge = function(age) {
+Ваши преобразования
+}
+Вывести в консоль результат работы функции с возрастами 17, 18, 61
+
+2*:
+Преобразовать задание 1* таким образом, чтобы первым делом в функции проверялся тип данных. И если он не Number - кидалась ошибка.
+
+3**:
+Преобразовать 2* таким образом, чтобы значение '2' (строка в которой лежит ТОЛЬКО ЦИФРА) пропускалось, преобразовываясь в number
+
+4***:
+Преобразовать задание 3* таким образом, чтобы возраст вводится используя функцию prompt в привязанной верстке
+___
+
+Страница с подключенным скриптом:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+Скрипт:
+```js
+for(let i = 0; i < 1; i) {
+    let age = parseInt(prompt('Please enter your age'));
+    if (!isNaN(age)) {
+        isAgeCorrect(age);
+        i++;
+    } else {
+        console.log('Incorrect input, please enter your correct age');
+         i = 0;
+    }
+}  
+
+function isAgeCorrect (age) {
+    let age_2 = 18,
+        age_3 = 60;
+
+        if (age < age_2) {
+            alert("You don't have access cause your age is ", age, ", and It's less then", age_2);
+        } else if (age >= age_2 && age < age_3) {
+            alert('Welcome!');
+        } else if (age > age_3) {
+            alert ('Keep calm and look the Culture channel');
+        } else alert ('Technical work');
+}
+```
